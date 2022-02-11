@@ -15,7 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 
-public class FXMLDocumentController implements Initializable {
+public class FXMLDocumentController {
     private Label labelMessage;
     @FXML
     private TextField screenTextField;
@@ -54,13 +54,6 @@ public class FXMLDocumentController implements Initializable {
     
     private double inMemory;   
     private String operation;
-     
-    //=========================================================
-    // you must initialize here all related with the object 
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
     
     private void appendTextField(String symbol) {
         
