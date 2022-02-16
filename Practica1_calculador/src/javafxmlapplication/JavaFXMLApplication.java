@@ -29,6 +29,11 @@ public class JavaFXMLApplication extends Application {
         //     - se muestra el stage de manera no modal mediante el metodo show()
         stage.setScene(scene);
         stage.setTitle("Calculator");
+        
+        // set minimum size of stage
+        stage.setMinHeight(400);
+        stage.setMinWidth(600);
+        
         stage.show();
     }
 

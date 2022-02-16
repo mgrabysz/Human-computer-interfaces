@@ -13,9 +13,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 
 
-public class FXMLDocumentController {
+public class FXMLDocumentController implements Initializable {
     private Label labelMessage;
     @FXML
     private TextField screenTextField;
@@ -51,9 +52,16 @@ public class FXMLDocumentController {
     private Button dotButton;
     @FXML
     private Button equalsButton;
+    @FXML
+    private VBox vbox;
     
     private double inMemory;   
     private String operation;
+    
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        vbox.setMinHeight(300); // why does not work?
+    }    
     
     private void appendTextField(String symbol) {
         
@@ -184,5 +192,5 @@ public class FXMLDocumentController {
         screenTextField.setText(Double.toString(inMemory));
         operation = "";
     }
-    
+       
 }
