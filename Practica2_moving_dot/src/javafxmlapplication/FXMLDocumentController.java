@@ -30,6 +30,8 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private GridPane boardGridPane;
     
+    private double initialX, initialY;
+    
     //=========================================================
     // event handler, fired when button is clicked or 
     //                      when the button has the focus and enter is pressed
@@ -97,4 +99,26 @@ public class FXMLDocumentController implements Initializable {
         
         boardGridPane.setConstraints(mainCircle, newColumn, newRow);
     }
+
+    @FXML
+    private void mousePressed(MouseEvent event) {
+        initialX = event.getSceneX();
+        initialY = event.getSceneY();
+    }
+    
+    @FXML
+    private void mouseDragged(MouseEvent event) {
+        mainCircle.setTranslateX(event.getSceneX() - initialX);
+        mainCircle.setTranslateY(event.getSceneY() - initialY);
+    }
+    @FXML
+    private void mouseReleased(MouseEvent event) {
+        mainCircle.setTranslateX(0);
+        mainCircle.setTranslateY(0);
+        event.consume();
+    }
+
+    
+
+    
 }
