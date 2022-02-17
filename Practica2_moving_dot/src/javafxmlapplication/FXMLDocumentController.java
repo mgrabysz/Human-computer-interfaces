@@ -73,16 +73,27 @@ public class FXMLDocumentController implements Initializable {
             case UP: 
                 moveUp(currentRow, currentColumn);
                 break;
+            case W:
+                moveUp(currentRow, currentColumn);
+                break;
             case RIGHT:
+                moveRight(currentRow, currentColumn);
+                break;
+            case D:
                 moveRight(currentRow, currentColumn);
                 break;
             case DOWN:
                 moveDown(currentRow, currentColumn);
                 break;
+            case S:
+                moveDown(currentRow, currentColumn);
+                break;
             case LEFT:
                 moveLeft(currentRow, currentColumn);
                 break;
-                               
+            case A:
+                moveLeft(currentRow, currentColumn);
+                break;
         }
     }
     
