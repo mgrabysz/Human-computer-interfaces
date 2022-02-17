@@ -97,6 +97,13 @@ public class FXMLDocumentController implements Initializable {
         int newRow = rowCalc(boardGridPane, y);
         int newColumn = columnCalc(boardGridPane, x);
         
+        if (newRow >= boardGridPane.getRowCount()) {
+            newRow = boardGridPane.getRowCount() - 1;
+        }
+        if (newColumn >= boardGridPane.getColumnCount()) {
+            newColumn = boardGridPane.getColumnCount() - 1;
+        }
+        
         boardGridPane.setConstraints(mainCircle, newColumn, newRow);
     }
 
