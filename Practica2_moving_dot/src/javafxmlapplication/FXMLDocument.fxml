@@ -46,10 +46,13 @@
                   <Insets top="10.0" />
                </padding>
             </Slider>
-            <ColorPicker fx:id="colorPicker" focusTraversable="false" onAction="#colorSelected" style="-fx-color-label-visible: false;">
+            <ColorPicker fx:id="colorPicker" focusTraversable="false" onAction="#colorSelected" prefHeight="25.0" prefWidth="50.0" style="-fx-color-label-visible: false;">
                <value>
                   <Color red="0.11764705926179886" green="0.5647059082984924" blue="1.0" />
                </value>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
             </ColorPicker>
          </children>
          <padding>
