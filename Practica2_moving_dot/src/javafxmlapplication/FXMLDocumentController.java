@@ -5,6 +5,8 @@
  */
 package javafxmlapplication;
 
+import static java.lang.Math.max;
+import static java.lang.Math.min;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -12,10 +14,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.input.DragEvent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -35,6 +40,8 @@ public class FXMLDocumentController implements Initializable {
     private double initialX, initialY;
     @FXML
     private ToggleButton toggleButton;
+    @FXML
+    private Slider sizeSlider;
     
     //=========================================================
     // event handler, fired when button is clicked or 
@@ -136,6 +143,33 @@ public class FXMLDocumentController implements Initializable {
             mainCircle.setFill(Color.TRANSPARENT);
         } else {
             mainCircle.setFill(Color.rgb(30, 144, 255));
+        }
+    }
+
+    @FXML
+    private void sliderMouseDragged(MouseEvent event) {
+        double value = sizeSlider.getValue();
+        mainCircle.setRadius(value);
+    }
+
+    @FXML
+    private void sliderMouseClicked(MouseEvent event) {
+        double value = sizeSlider.getValue();
+        mainCircle.setRadius(value);
+    }
+
+    @FXML
+    private void sliderScolled(ScrollEvent event) {
+        
+        double mouseScroll = event.getDeltaY();
+        double value = sizeSlider.getValue();
+        
+        if (mouseScroll > 0) {
+            sizeSlider.setValue(min(value + 5, 25));
+            mainCircle.setRadius(min(value + 5, 25));
+        } else {
+            sizeSlider.setValue(max(value - 5, 5));
+            mainCircle.setRadius(max(value - 5, 5));
         }
     }
 
