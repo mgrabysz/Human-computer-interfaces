@@ -28,7 +28,7 @@ public class JavaFXMLApplication extends Application {
         //     - configuracion del stage
         //     - se muestra el stage de manera no modal mediante el metodo show()
         stage.setScene(scene);
-        stage.setTitle("Moving a circle");
+        stage.setTitle("Have fun moving a circle");
         
         stage.setMinWidth(708);
         stage.setMinHeight(450);

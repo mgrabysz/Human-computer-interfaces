@@ -12,12 +12,10 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.ToggleButton;
-import javafx.scene.input.DragEvent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -27,33 +25,21 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import static javafxmlapplication.Utils.*;
 
-/**
- *
- * @author jsoler
- */
+
 public class FXMLDocumentController implements Initializable {
-    private Label labelMessage;
     @FXML
     private Circle mainCircle;
     @FXML
     private GridPane boardGridPane;
     
-    private double initialX, initialY;
     @FXML
     private ToggleButton toggleButton;
     @FXML
     private Slider sizeSlider;
     @FXML
     private ColorPicker colorPicker;
-    @FXML
-    private ColorPicker colorPicker1;
     
-    //=========================================================
-    // event handler, fired when button is clicked or 
-    //                      when the button has the focus and enter is pressed
-    private void handleButtonAction(ActionEvent event) {
-        labelMessage.setText("Hello, this is your first JavaFX project - IPC");
-    }
+    private double initialX, initialY;
     
     //=========================================================
     // you must initialize here all related with the object 
