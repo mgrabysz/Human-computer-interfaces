@@ -13,6 +13,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.ToggleButton;
@@ -42,6 +43,10 @@ public class FXMLDocumentController implements Initializable {
     private ToggleButton toggleButton;
     @FXML
     private Slider sizeSlider;
+    @FXML
+    private ColorPicker colorPicker;
+    @FXML
+    private ColorPicker colorPicker1;
     
     //=========================================================
     // event handler, fired when button is clicked or 
@@ -139,11 +144,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void toggleButtonPressed(ActionEvent event) {
         
-        if (toggleButton.isSelected()) {
-            mainCircle.setFill(Color.TRANSPARENT);
-        } else {
-            mainCircle.setFill(Color.rgb(30, 144, 255));
-        }
+        actualizeColors();
     }
 
     @FXML
@@ -170,6 +171,21 @@ public class FXMLDocumentController implements Initializable {
         } else {
             sizeSlider.setValue(max(value - 5, 5));
             mainCircle.setRadius(max(value - 5, 5));
+        }
+    }
+
+    @FXML
+    private void colorSelected(ActionEvent event) {
+        actualizeColors();
+    }
+    
+    private void actualizeColors() {
+        if (toggleButton.isSelected()) {
+            mainCircle.setFill(Color.TRANSPARENT);
+            mainCircle.setStroke(colorPicker.getValue());
+        } else {
+            mainCircle.setFill(colorPicker.getValue());
+            mainCircle.setStroke(Color.BLACK);
         }
     }
 
