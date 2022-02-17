@@ -12,10 +12,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import static javafxmlapplication.Utils.*;
 
@@ -31,6 +33,8 @@ public class FXMLDocumentController implements Initializable {
     private GridPane boardGridPane;
     
     private double initialX, initialY;
+    @FXML
+    private ToggleButton toggleButton;
     
     //=========================================================
     // event handler, fired when button is clicked or 
@@ -123,6 +127,16 @@ public class FXMLDocumentController implements Initializable {
         mainCircle.setTranslateX(0);
         mainCircle.setTranslateY(0);
         event.consume();
+    }
+
+    @FXML
+    private void toggleButtonPressed(ActionEvent event) {
+        
+        if (toggleButton.isSelected()) {
+            mainCircle.setFill(Color.TRANSPARENT);
+        } else {
+            mainCircle.setFill(Color.rgb(30, 144, 255));
+        }
     }
 
     
