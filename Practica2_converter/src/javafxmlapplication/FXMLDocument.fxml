@@ -33,8 +33,8 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
          <children>
-            <Button fx:id="convertButton" mnemonicParsing="false" text="Convert" />
-            <Button fx:id="clearButton" mnemonicParsing="false" text="Clear" />
+            <Button fx:id="convertButton" mnemonicParsing="false" onAction="#convertButtonClicked" text="Convert" />
+            <Button fx:id="clearButton" mnemonicParsing="false" onAction="#ClearButtonClicked" text="Clear" />
          </children>
       </HBox>
       <Separator prefWidth="200.0" />

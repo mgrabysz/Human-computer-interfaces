@@ -35,14 +35,14 @@ public class FXMLDocumentController implements Initializable {
     private CheckBox automaticConversionCheckBox;
     @FXML
     private Slider slider;
-    
-    private ChangeListener<String> inputListener = this::listenerOfInput;
-    private ChangeListener<Number> sliderListener = this::listenerOfSlider;
     @FXML
     private Button convertButton;
     @FXML
     private Button clearButton;
-       
+    
+    private ChangeListener<String> inputListener = this::listenerOfInput;
+    private ChangeListener<Number> sliderListener = this::listenerOfSlider;
+    
     //=========================================================
     // you must initialize here all related with the object 
     @Override
@@ -57,9 +57,11 @@ public class FXMLDocumentController implements Initializable {
         if (automaticConversionCheckBox.isSelected()) {
             inputTextField.textProperty().addListener(inputListener);
             slider.valueProperty().addListener(sliderListener);
+            convertButton.setDisable(true);
         } else {
             inputTextField.textProperty().removeListener(inputListener);
             slider.valueProperty().removeListener(sliderListener);
+            convertButton.setDisable(false);
         }
     }
     
@@ -76,6 +78,19 @@ public class FXMLDocumentController implements Initializable {
     private void listenerOfSlider(ObservableValue<? extends Number> obs, Number oldValue, Number newValue) {
         double output = Double.parseDouble(inputTextField.getText()) * slider.getValue();
         outputTextField.setText(String.format("%.2f", output));
+    }
+
+    @FXML
+    private void convertButtonClicked(ActionEvent event) {
+        double output = Double.parseDouble(inputTextField.getText()) * slider.getValue();
+        outputTextField.setText(String.format("%.2f", output));
+    }
+
+    @FXML
+    private void ClearButtonClicked(ActionEvent event) {
+        inputTextField.setText("");
+        outputTextField.setText("0,00");
+        slider.setValue(1);
     }
     
 }
