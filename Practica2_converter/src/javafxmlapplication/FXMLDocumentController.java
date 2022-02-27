@@ -24,7 +24,7 @@ import javafx.scene.control.TextField;
  * @author jsoler
  */
 public class FXMLDocumentController implements Initializable {
-    private Label labelMessage;
+    
     @FXML
     private Label valueLabel;
     @FXML
@@ -37,8 +37,7 @@ public class FXMLDocumentController implements Initializable {
     private Slider slider;
     @FXML
     private Button convertButton;
-    @FXML
-    private Button clearButton;
+    
     
     private ChangeListener<String> inputListener = this::listenerOfInput;
     private ChangeListener<Number> sliderListener = this::listenerOfSlider;
@@ -76,8 +75,11 @@ public class FXMLDocumentController implements Initializable {
     }
     
     private void listenerOfSlider(ObservableValue<? extends Number> obs, Number oldValue, Number newValue) {
-        double output = Double.parseDouble(inputTextField.getText()) * slider.getValue();
-        outputTextField.setText(String.format("%.2f", output));
+        
+        if (!inputTextField.getText().equals("")) { 
+            double output = Double.parseDouble(inputTextField.getText()) * slider.getValue();
+            outputTextField.setText(String.format("%.2f", output));
+        }
     }
 
     @FXML
