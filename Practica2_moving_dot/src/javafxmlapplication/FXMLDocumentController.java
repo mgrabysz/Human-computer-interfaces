@@ -148,12 +148,14 @@ public class FXMLDocumentController implements Initializable {
     private void sliderMouseDragged(MouseEvent event) {
         double value = sizeSlider.getValue();
         mainCircle.setRadius(value);
+        mainCircle.requestFocus();
     }
 
     @FXML
     private void sliderMouseClicked(MouseEvent event) {
         double value = sizeSlider.getValue();
         mainCircle.setRadius(value);
+        mainCircle.requestFocus();
     }
 
     @FXML
