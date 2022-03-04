@@ -7,3 +7,4 @@ This repository contains projects made while following the subject Human-compute
 - **Practica1_calculador** - simple calculator (actually does calculations)
 - **Practica2_moving_dot** - program allowing to move and control a dot on a board using mouse and keyboard input 
 - **Practica2_converter** - program multiplying given value by certain factor. Basically a practice for binding and listeners concepts.
+- **Practica2_sign_up** - window for creating account. A practice for checking correct user input
